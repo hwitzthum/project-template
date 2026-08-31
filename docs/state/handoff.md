@@ -2,21 +2,17 @@
 
 ## Letzte Sitzung
 
-- Kern/Profil-Trennung im Initializer-Prompt vollendet: Landingpage-Details
-  aus docs/templates/initializer-prompt.md in die neue Profil-Datei
-  docs/profil/technik.md verschoben; Prompt ist jetzt projektunabhängig.
-- docs/profil/README.md (Tabelle, Interview-Prompt, Regeln) ergänzt,
-  Entscheidung in docs/state/decisions.md dokumentiert.
-- Alles über Branch nach main gemergt und gepusht (5ac0e04),
-  Branch gelöscht. Arbeitsbaum sauber.
+- Startkit angelegt: CLAUDE.md, settings.json, Platzhalter-Skripte,
+  docs/-Struktur (Kern in docs/templates, Profil in docs/profil,
+  inkl. docs/profil/technik.md). Kein Produktcode.
 
 ## Achtung nächste Sitzung
 
 - Initialisierung noch NICHT ausgeführt. scripts/*.sh sind Platzhalter (exit 0).
-- git push ist per deny-Regel in .claude/settings.json für den Agenten
-  gesperrt (Absicht). Pushen macht der Auftraggeber selbst: "! git push".
 - Vor der Initialisierung: ersten Brief in docs/briefs/ anlegen
   (Vorlage: docs/profil/brief-template.md).
+- git push ist per deny-Regel in .claude/settings.json für den Agenten
+  gesperrt (Absicht). Pushen macht der Auftraggeber selbst: "! git push".
 
 ## Für den Auftraggeber zu prüfen
 
