@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# verify.sh — DIE einzige Prüfung: build + lint + tests + HTML + Link-Check.
+# verify.sh — DIE einzige Prüfung. Stufen gemäss docs/profil/technik.md.
 # Vertrag: exit 0 <=> alles bestanden. Letzte Zeile IMMER "verify: GREEN"
 # oder "verify: RED". Pro Stufe "ok: <stufe>" bzw. "FAILED: <stufe>" + tail.
 # --quick = nur schnelle Stufen (Commit-Hook).
