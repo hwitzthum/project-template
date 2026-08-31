@@ -48,6 +48,7 @@ Das Startkit liegt als Vorlage auf GitHub. Sie erstellen daraus Ihr **eigenes** 
 3. Geben Sie einen Namen (z.B. `landingpages-meinverein`), wählen Sie **Private**, und klicken Sie **«Create repository»**. Sie haben jetzt Ihr eigenes Projekt auf GitHub.
 4. Auf diesem neuen Projekt: grüner Button **«Code»** → **«Open with GitHub Desktop»**. GitHub Desktop fragt, wo der Ordner auf Ihrem Computer liegen soll — merken Sie sich diesen Pfad.
 5. In GitHub Desktop: **«Repository» → «Open in Terminal»** (Mac) bzw. **«Open in Git Bash»** (Windows). Dort tippen Sie `claude` — fertig.
+6. Beim allerersten Start fragt Claude Code, ob Sie den Dateien in diesem Ordner vertrauen. Antworten Sie mit **Ja**. Verneinen Sie, bleiben die eingebauten Schutzregeln wirkungslos — Claude dürfte dann alles, was unten unter «Was Claude nicht darf» ausgeschlossen ist.
 
 Wichtig: **Nicht als ZIP herunterladen.** Die ZIP-Variante hat keine Projekt-Historie, und ohne sie funktionieren die eingebauten Sicherheitsprüfungen nicht.
 
