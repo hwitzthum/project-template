@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
-# commit-gate.sh — PreToolUse-Hook, läuft nur vor `git commit` (siehe
-# .claude/settings.json, Feld "if"). Führt verify.sh --quick aus.
-# Exit 2 = Commit wird blockiert (Hook-Vertrag von Claude Code); Exit 0 = frei.
+# commit-gate.sh — PreToolUse-Hook (matcher: Bash). Das Hook-Schema von Claude
+# Code filtert nur nach Werkzeugnamen, nicht nach Befehl — deshalb prüft dieses
+# Skript selbst, ob ein `git commit` ansteht, und ist sonst still.
+# Bei `git commit`: verify.sh --quick. Exit 2 = Commit wird blockiert
+# (Hook-Vertrag von Claude Code); Exit 0 = frei.
 set -uo pipefail
-cat >/dev/null   # Hook-JSON auf stdin wird nicht benötigt
+
+# Befehl aus dem Hook-JSON auf stdin lesen (kein jq — nicht überall vorhanden).
+cmd=""
+[ -t 0 ] || cmd=$(sed -n 's/.*"command"[[:space:]]*:[[:space:]]*"//p' | head -n 1)
+cmd=${cmd%%'","'*}   # alles ab dem nächsten JSON-Feld abschneiden
+case "$cmd" in
+  *"git commit"*) ;;
+  *) exit 0 ;;
+esac
+
 out=$(./scripts/verify.sh --quick 2>&1)
 if [ $? -ne 0 ]; then
   echo "Commit blockiert — verify.sh --quick ist RED:" >&2
