@@ -4,7 +4,11 @@
 # Skript selbst, ob ein `git commit` ansteht, und ist sonst still.
 # Bei `git commit`: verify.sh --quick. Exit 2 = Commit wird blockiert
 # (Hook-Vertrag von Claude Code); Exit 0 = frei.
+# Hooks laufen im AKTUELLEN Verzeichnis, und ein `cd` des Agenten ändert es.
+# Deshalb zuerst in die Projektwurzel wechseln — sonst fände `git commit`
+# aus einem Unterordner verify.sh nicht, und das Gate liefe ins Leere.
 set -uo pipefail
+cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || { echo "commit-gate: Projektwurzel nicht gefunden" >&2; exit 2; }
 
 # Befehl aus dem Hook-JSON auf stdin lesen (kein jq — nicht überall vorhanden).
 cmd=""

@@ -22,7 +22,9 @@
 - Aufgaben: docs/tasks/ (bereit: ./scripts/next-tasks.sh)
 
 ## Sitzungsstart
-- IMMER zuerst ./scripts/state-summary.sh ausführen.
+- Der Projektzustand (./scripts/state-summary.sh) wird per SessionStart-Hook
+  automatisch eingespielt — bei Start, /clear und nach Komprimierung. Bei
+  Bedarf erneut ausführen.
 - Am Ende docs/state/handoff.md aktualisieren (max. 30 Zeilen), inkl.
   Abschnitt "Für den Auftraggeber zu prüfen"; pro abgeschlossener Aufgabe eine
   Zeile an docs/state/metrics.csv anhängen.

@@ -7,6 +7,9 @@
 # bei jeder Dateiänderung, unsichtbar und langsam. Das lokale Binary aufrufen;
 # fehlt es, wird eben nicht formatiert.
 set -uo pipefail
+# Hooks laufen im aktuellen Verzeichnis (ändert sich mit `cd`); der Formatter
+# liegt aber unter der Projektwurzel — also zuerst dorthin.
+cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || exit 0
 f="${1:-}"
 if [ -z "$f" ] && [ ! -t 0 ]; then
   f=$(sed -n 's/.*"file_path"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -n 1)

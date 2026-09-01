@@ -60,7 +60,9 @@ Erzeuge genau:
      in --deep, nicht in die Standard-Prüfung.
    - Muss HEUTE auf dem Skelett grün laufen.
 
-4. scripts/state-summary.sh — ersetzt den Platzhalter. Vertrag:
+4. scripts/state-summary.sh — ersetzt den Platzhalter. Läuft als
+   SessionStart-Hook (.claude/settings.json); seine Ausgabe landet direkt
+   im Kontext jeder neuen Sitzung. Vertrag:
    ≤ 250 Tokens, Obergrenze PRO ABSCHNITT (kein globales Abschneiden):
    1 Zeile git (Branch, uncommitted, letzter Commit) · Scoreboard
    "N/M passing" · max. 8 FAILING-Features des aktuellen Meilensteins
