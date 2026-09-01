@@ -171,11 +171,14 @@ Für jede weitere Landingpage: Schritt 2 (neuer Brief), dann eine kurze Initiali
 
 ## Was Claude nicht darf — mit Absicht
 
-Die Fabrik hat Sicherheitsregeln eingebaut. Claude kann **nicht**:
+Die Fabrik hat Sperren eingebaut. Claude darf **nicht**:
 
 - etwas ins Internet hochladen (`git push`, `curl`, `wget`),
-- Dateien massenhaft löschen (`rm -rf`),
+- Dateien massenhaft löschen (`rm -r…`),
+- ungespeicherte Arbeit verwerfen (`git reset --hard`, `git checkout --`, `git clean`, `git restore`),
 - speichern («commit»), wenn die automatische Prüfung rot ist.
+
+Diese Sperren prüfen jeden Befehl, bevor er läuft — auch versteckt in einem längeren Befehl. Sie sind ein Stolperdraht, kein Tresor: Wer Claude ausdrücklich bittet, eine Sperre zu umgehen, bekommt vielleicht einen Weg. Bitten Sie also nicht darum.
 
 Wenn Claude sagt, es dürfe etwas nicht: Das ist kein Fehler, sondern der Schutz. Veröffentlichen Sie Seiten bewusst und selbst — Claude erklärt Ihnen, wie.
 
