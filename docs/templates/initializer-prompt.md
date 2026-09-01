@@ -38,7 +38,7 @@ Erzeuge genau:
    Reihenfolge-Präferenzen. human_review: true bei allem Visuellen oder
    Textlichen. Jede Aufgabe in einer Sitzung schaffbar. Jede hat einen
    Abschnitt "Nicht Teil dieser Aufgabe".
-   Feld class (statt model_hint) nach dem Test "würden zwei kompetente
+   Feld class nach dem Test "würden zwei kompetente
    Entwickler denselben Code schreiben?": ja -> mechanical; verschieden,
    beide richtig -> patterned; verschieden und strittig -> open. Alles
    mit human_review: true ist open. Im Zweifel zwischen mechanical und
