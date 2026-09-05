@@ -86,9 +86,11 @@ Sie müssen dafür kein Designer sein. Claude führt Sie durch ein Gespräch.
 
 **Was dabei entsteht:** Eine Regel-Datei, die Claude in jeder künftigen Sitzung automatisch beachtet — Sie müssen die Regeln nie wiederholen.
 
-## Schritt 2: Den ersten Brief schreiben (ca. 20 Minuten)
+## Schritt 2: Den ersten Brief schreiben (ca. 30 Minuten)
 
 Der Brief ist Ihr Auftrag für eine Landingpage. Er beantwortet: Was soll die Seite erreichen? Für wen? Was sollen Besucher tun? Was gehört ausdrücklich **nicht** auf die Seite?
+
+Legen Sie sich vorher die harten Angaben bereit: Preis, Datum, Ort, Anmeldeschluss — und was Sie an echten Belegen haben (Teilnehmerzahlen, Zitate, Jahreszahlen, Partnerlogos).
 
 Sie können den Brief allein schreiben (Vorlage: `docs/profil/brief-template.md`) — oder Sie lassen sich von Claude interviewen. Das zweite ist meist besser, weil Claude nachfragt, wo Sie sonst etwas vergessen würden.
 
@@ -102,6 +104,8 @@ Sie können den Brief allein schreiben (Vorlage: `docs/profil/brief-template.md`
 3. Antworten Sie auf die Fragen. Claude schlägt einen Kurznamen («slug») für die Seite vor, z.B. `herbstkurs`.
 
 **Der wichtigste Abschnitt ist «Nicht Teil dieser Seite».** Alles, was Sie dort nicht ausschliessen, baut Claude möglicherweise aus Gefälligkeit mit — und Sie zahlen für Arbeit, die Sie nicht wollten. Nehmen Sie sich für diesen Abschnitt Zeit.
+
+**Die drei Abschnitte, die über den Erfolg der Seite entscheiden,** sind «Was der Besucher davon hat», «Was dagegen spricht» und «Belege, die ich habe». Aus ihnen entstehen zwei der fünf Abschnitte der fertigen Seite. Lassen Sie sie leer, hat Claude dafür nichts in der Hand — und eine Seite, die nur sagt, was Sie anbieten, überzeugt niemanden. Bei den Belegen gilt: nur Echtes. «Keine» ist eine gültige Antwort; erfundene Zahlen fliegen auf.
 
 ## Schritt 3: Die Initialisierung (einmalig, ca. 45 Minuten)
 
