@@ -11,11 +11,12 @@ Schichtarbeit zwischen Sitzungen. Mitgeliefertes Profil: **Landingpage-Fabrik**.
 
 Für ein anderes Projekt als Landingpages: `docs/profil/README.md`.
 
-Die Word-Datei ist erzeugt, nicht handgepflegt. Quelle ist `docs/KURSANLEITUNG.md`;
-nach jeder Änderung dort neu erzeugen mit:
+Die Word-Dateien sind erzeugt, nicht handgepflegt. Quelle ist jeweils die
+Markdown-Datei daneben; nach jeder Änderung dort neu erzeugen mit:
 
 ```bash
 pandoc docs/KURSANLEITUNG.md --toc -o KURSANLEITUNG.docx
+pandoc docs/startkit-update.md --toc -o docs/startkit-update.docx
 ```
 
 ---
@@ -111,7 +112,7 @@ Läuft als PostToolUse-Hook nach jedem Edit/Write. Ruft `node_modules/.bin/prett
   - `metrics.csv` — Aufgaben-Statistik (automatisch gefüllt von `finish-task.sh`)
 - **`docs/tasks/`** — Aufgaben (je eine `.md`, Frontmatter mit Status)
 - **`docs/startkit-update.md`** — wie ein Projekt spätere Verbesserungen der Vorlage nachzieht
-  (E-Mail-Fassung für die Teilnehmenden: `docs/startkit-update-email.md`)
+  (Word-Fassung: `docs/startkit-update.docx`, E-Mail-Fassung: `docs/startkit-update-email.md`)
 
 ---
 
