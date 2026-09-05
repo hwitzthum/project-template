@@ -11,6 +11,13 @@ Schichtarbeit zwischen Sitzungen. Mitgeliefertes Profil: **Landingpage-Fabrik**.
 
 Für ein anderes Projekt als Landingpages: `docs/profil/README.md`.
 
+Die Word-Datei ist erzeugt, nicht handgepflegt. Quelle ist `docs/KURSANLEITUNG.md`;
+nach jeder Änderung dort neu erzeugen mit:
+
+```bash
+pandoc docs/KURSANLEITUNG.md --toc -o KURSANLEITUNG.docx
+```
+
 ---
 
 ## Scripts — Zusammenarbeit mit Claude
@@ -26,20 +33,22 @@ Läuft beim Commit (Hook) und vor jeder Aufgaben-Fertigstellung. Exit-Code 0 = a
 - Was geprüft wird: definiert in `docs/profil/technik.md` (Stack, Linter, Tests)
 - **Placeholder:** Initial nur `exit 0` — der Initializer ersetzt es später durch echte Prüfungen
 
-**`./scripts/finish-task.sh <id> [modell] [runden] [tokens]`** — Aufgaben abschliessen  
+**`./scripts/finish-task.sh <id> <modell> <runden> <tokens>`** — Aufgaben abschliessen  
 Der _einzige_ Weg, eine Aufgabe als erledigt zu markieren.
 
 ```bash
-./scripts/finish-task.sh aufgaben-001
+./scripts/finish-task.sh 004 opus 3 45000
 ```
 
 Was es macht:
 
 1. Vollständiges `verify.sh` ausführen
-2. Alle Akzeptanz-Tests der Aufgabe ausführen (aus dem `acceptance:`-Feld im Frontmatter)
-3. Status in `docs/tasks/aufgaben-001.md` auf `done` setzen
+2. Alle Akzeptanz-Befehle der Aufgabe ausführen (aus dem `acceptance:`-Feld im Frontmatter)
+3. Die Aufgabe mit `id: 004` in `docs/tasks/` suchen (über das Frontmatter, nicht den Dateinamen) und auf `status: done` setzen
 4. Eine Zeile in `docs/state/metrics.csv` schreiben (für Statistik)
 5. Alles committen
+
+Modell, Runden und Tokens sind technisch optional — ohne sie steht in `metrics.csv` nur ein Strich. `CLAUDE.md` verlangt deshalb, sie immer mitzugeben, damit das Meilenstein-Review echte Zahlen hat.
 
 Wenn eine Prüfung rot ist: Das Script ändert **nichts** (exit 1). Ein normaler Commit reicht nicht — nur dieser Befehl ist der Zustandsübergang.
 
@@ -78,8 +87,8 @@ Vorlage: `docs/templates/handoff-template.md` (max. 30 Zeilen, inkl. «Für den 
 
 Ausnahme: Commits, die **nur** Startkit-Dateien berühren (scripts/, .claude/, docs/templates/, CLAUDE.md) — dann läuft alles unangetastet.
 
-**`commit-gate.sh`** — Prüfung vor jedem Commit  
-Läuft als Pre-Commit-Hook. Führt `./scripts/verify.sh --quick` aus — schnelle Prüfungen (Tests, Linter). Wenn rot: Commit blockiert.
+**`commit-gate.sh`** — Prüfung vor Claudes Commits  
+Läuft als PreToolUse-Hook auf Bash und wird still, wenn der Befehl kein `git commit` ist. Sonst: `./scripts/verify.sh --quick` (schnelle Stufen, ≤ 10 s). Wenn rot: Commit blockiert. Kein Git-Hook — eigene Commits im Terminal prüft er nicht.
 
 ### Wartungs-Scripts
 
@@ -87,7 +96,7 @@ Läuft als Pre-Commit-Hook. Führt `./scripts/verify.sh --quick` aus — schnell
 Läuft als SessionStart-Hook, speichert den aktuellen Commit-Hash in `.claude/session-head` — das ist die Marke für `stop-guard.sh`, um zu erkennen, was seit der Sitzung neu committet wurde.
 
 **`autoformat.sh`** — Code formatieren  
-Stack-spezifisch (wird vom Initializer übernommen). Beispiel: `prettier` für JS/React, `black` für Python.
+Läuft als PostToolUse-Hook nach jedem Edit/Write. Ruft `node_modules/.bin/prettier` für `.ts/.tsx/.js/.mjs/.astro/.css/.json` auf — bewusst ohne `npx`, damit nie ungefragt etwas aus dem Netz nachgeladen wird. Fehlt das Binary, wird nicht formatiert. Der Initializer passt die Formatter an den Stack an.
 
 ---
 

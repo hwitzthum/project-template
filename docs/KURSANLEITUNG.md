@@ -137,7 +137,9 @@ Ab jetzt läuft das Projekt in Schichten. Jede Sitzung erledigt eine Aufgabe.
 
 **Eine Sitzung beenden:**
 
-Claude beendet die Aufgabe selbst: Es prüft, speichert («commit») und schreibt die Übergabenotiz. Falls es das vergisst, sagen Sie: «Aktualisiere docs/state/handoff.md.»
+Claude schliesst die Aufgabe mit einem einzigen Befehl ab: `./scripts/finish-task.sh <nummer>`. Der Befehl prüft zuerst alles. Nur wenn die Prüfung grün ist, wird die Aufgabe auf «erledigt» gesetzt, in `docs/state/metrics.csv` vermerkt und gespeichert. Ist die Prüfung rot, ändert sich **nichts** — Claude muss erst die Ursache beheben. Blosses Speichern («commit») schliesst keine Aufgabe ab.
+
+Danach schreibt Claude die Übergabenotiz. Daran müssen Sie Claude nicht mehr erinnern: Wurde in der Sitzung gearbeitet, aber `docs/state/handoff.md` nicht aktualisiert, lässt sich die Sitzung nicht beenden. Claude meldet dann «Stopp blockiert» — das ist der Schutz, kein Fehler.
 
 **Ihre Prüfung nach jeder Sitzung:**
 
@@ -176,7 +178,9 @@ Die Fabrik hat Sperren eingebaut. Claude darf **nicht**:
 - etwas ins Internet hochladen (`git push`, `curl`, `wget`),
 - Dateien massenhaft löschen (`rm -r…`),
 - ungespeicherte Arbeit verwerfen (`git reset --hard`, `git checkout --`, `git clean`, `git restore`),
-- speichern («commit»), wenn die automatische Prüfung rot ist.
+- speichern («commit»), wenn die automatische Prüfung rot ist,
+- eine Aufgabe als erledigt melden, wenn die automatische Prüfung rot ist,
+- die Sitzung beenden, ohne die Übergabenotiz geschrieben zu haben.
 
 Diese Sperren prüfen jeden Befehl, bevor er läuft — auch versteckt in einem längeren Befehl. Sie sind ein Stolperdraht, kein Tresor: Wer Claude ausdrücklich bittet, eine Sperre zu umgehen, bekommt vielleicht einen Weg. Bitten Sie also nicht darum.
 
@@ -210,6 +214,7 @@ Falls ein Dienst (z.B. für Formulare) einen Zugangsschlüssel braucht, legt Cla
 | Aufgabe (Task)  | Ein Arbeitspaket, das in einer Sitzung erledigt wird. Liegt in `docs/tasks/`.                |
 | Handoff         | Die Übergabenotiz zwischen zwei Sitzungen.                                                   |
 | verify          | Die automatische Prüfung. GREEN = alles in Ordnung, RED = etwas ist kaputt.                  |
+| finish-task     | Der Befehl, der eine Aufgabe abschliesst: prüfen, auf «erledigt» setzen, speichern.          |
 | Commit          | Ein gespeicherter Stand des Projekts. Kann jederzeit wiederhergestellt werden.               |
 | Skill           | Eine Regel-Datei, die Claude bei Bedarf automatisch liest — z.B. Ihre Design-Regeln.         |
 | human_review    | Kennzeichen an einer Aufgabe: «Das muss ein Mensch anschauen.»                               |
