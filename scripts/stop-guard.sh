@@ -20,7 +20,7 @@ printf '%s' "$input" | grep -Eq '"stop_hook_active"[[:space:]]*:[[:space:]]*true
 base=$(cat .claude/session-head)
 git cat-file -e "$base^{commit}" 2>/dev/null || exit 0             # Marke zeigt ins Leere (Rebase, Branchwechsel)
 [ -n "$(git rev-list "$base"..HEAD 2>/dev/null)" ] || exit 0        # nichts committet -> nichts zu übergeben
-STARTKIT='^(scripts/|\.claude/|docs/templates/|docs/profil/|CLAUDE\.md$|README\.md$|\.gitignore$|docs/KURSANLEITUNG\.md$|KURSANLEITUNG\.docx$)'
+STARTKIT='^(scripts/|\.claude/|docs/templates/|docs/profil/|CLAUDE\.md$|README\.md$|\.gitignore$|\.gitattributes$|docs/KURSANLEITUNG\.md$|KURSANLEITUNG\.docx$)'
 git diff --name-only "$base" HEAD | grep -Evq "$STARTKIT" || exit 0  # nur Startkit-Dateien -> Wartung, frei
 [ -z "$(git diff --name-only "$base" HEAD -- docs/state/handoff.md)" ] || exit 0
 [ -z "$(git status --porcelain -- docs/state/handoff.md)" ] || exit 0
