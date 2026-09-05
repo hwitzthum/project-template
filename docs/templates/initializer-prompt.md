@@ -70,8 +70,10 @@ Erzeuge genau:
    · 1 Zeile Verify-Urteil (./scripts/verify.sh --quick | tail -n 1).
    Lege docs/state/current-milestone an (eine Zeile; den ersten
    Meilenstein nennt technik.md).
-   docs/state/metrics.csv existiert bereits (Kopfzeile); jede
-   abgeschlossene Aufgabe hängt eine Zeile an — nicht ändern.
+   docs/state/metrics.csv existiert bereits (Kopfzeile); scripts/finish-task.sh
+   hängt pro abgeschlossener Aufgabe eine Zeile an — beides nicht ändern.
+   NICHT ersetzen (Startkit-Verträge, stack-unabhängig): scripts/finish-task.sh,
+   stop-guard.sh, session-mark.sh, commit-gate.sh, bash-guard.sh.
 
    scripts/next-tasks.sh — ersetzt den Platzhalter. Liest das
    Frontmatter in docs/tasks/, gibt Aufgaben mit status: todo aus,
