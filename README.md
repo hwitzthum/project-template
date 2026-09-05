@@ -110,6 +110,8 @@ Läuft als PostToolUse-Hook nach jedem Edit/Write. Ruft `node_modules/.bin/prett
   - `handoff.md` — Übergabe zwischen Sitzungen (was läuft, was der Auftraggeber prüfen soll)
   - `metrics.csv` — Aufgaben-Statistik (automatisch gefüllt von `finish-task.sh`)
 - **`docs/tasks/`** — Aufgaben (je eine `.md`, Frontmatter mit Status)
+- **`docs/startkit-update.md`** — wie ein Projekt spätere Verbesserungen der Vorlage nachzieht
+  (E-Mail-Fassung für die Teilnehmenden: `docs/startkit-update-email.md`)
 
 ---
 
