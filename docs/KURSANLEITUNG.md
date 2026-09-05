@@ -103,9 +103,23 @@ Sie können den Brief allein schreiben (Vorlage: `docs/profil/brief-template.md`
 
 3. Antworten Sie auf die Fragen. Claude schlägt einen Kurznamen («slug») für die Seite vor, z.B. `herbstkurs`.
 
+**So füllen Sie ihn aus — die Reihenfolge macht den Unterschied:**
+
+1. **Nicht von oben nach unten.** Tragen Sie zuerst ein, was Sie ohne Nachdenken wissen: Preis, Datum, Ort, Anmeldeschluss, Sprachen, Domain. Das kostet fünf Minuten, und Sie sehen sofort, was Ihnen noch fehlt.
+2. **Dann die drei Abschnitte, die über den Erfolg entscheiden:** «Was der Besucher davon hat», «Was dagegen spricht» und «Belege, die ich habe». Sie sind die anstrengendsten und die wertvollsten — nehmen Sie sich dafür die halbe Zeit. Aus ihnen entstehen zwei der fünf Abschnitte der fertigen Seite. Bleiben sie leer, hat Claude dafür nichts in der Hand, und eine Seite, die nur sagt, was Sie anbieten, überzeugt niemanden.
+3. **Den Zielsatz zuletzt.** Er wird schärfer, wenn alles andere steht.
+
+Für die drei schwierigen Abschnitte gibt es je einen Handgriff, der zuverlässig funktioniert:
+
+- **Nutzen:** Schreiben Sie, was der Besucher danach **kann, hat oder spart** — nicht, was Sie anbieten. Probe: Könnte ein Mitbewerber denselben Satz über sich schreiben, ist es noch kein Nutzen.
+- **Einwände:** Denken Sie an die letzten drei Menschen, die skeptisch nachgefragt haben — am Telefon, per E-Mail, am Stand. Deren Fragen sind die Einwände. Erfinden müssen Sie nichts.
+- **Belege:** Nur Echtes — in Mitgliederlisten, alten Newslettern und Dankes-Mails steckt mehr, als man denkt. Wen Sie namentlich zitieren, fragen Sie vorher. «Keine» ist eine gültige Antwort; erfundene Zahlen fliegen auf und kosten mehr, als sie bringen.
+
+Zwei Dinge sparen Zeit: Wenn Sie etwas nicht wissen, sagen Sie «ich weiss es nicht», statt zu raten — Claude schlägt Ihnen dann übliche Optionen vor. Und formulieren Sie keine fertigen Texte; Stichworte genügen. Der Brief hält Fakten und Absicht fest, die Formulierung der Seite ist Claudes Arbeit, und Sie geben sie danach frei.
+
 **Der wichtigste Abschnitt ist «Nicht Teil dieser Seite».** Alles, was Sie dort nicht ausschliessen, baut Claude möglicherweise aus Gefälligkeit mit — und Sie zahlen für Arbeit, die Sie nicht wollten. Nehmen Sie sich für diesen Abschnitt Zeit.
 
-**Die drei Abschnitte, die über den Erfolg der Seite entscheiden,** sind «Was der Besucher davon hat», «Was dagegen spricht» und «Belege, die ich habe». Aus ihnen entstehen zwei der fünf Abschnitte der fertigen Seite. Lassen Sie sie leer, hat Claude dafür nichts in der Hand — und eine Seite, die nur sagt, was Sie anbieten, überzeugt niemanden. Bei den Belegen gilt: nur Echtes. «Keine» ist eine gültige Antwort; erfundene Zahlen fliegen auf.
+Zum Schluss lesen Sie den fertigen Brief einmal so, als wären Sie der Besucher, den Sie beschrieben haben. Was Ihnen dabei fehlt, fehlt später auf der Seite.
 
 ## Schritt 3: Die Initialisierung (einmalig, ca. 45 Minuten)
 
