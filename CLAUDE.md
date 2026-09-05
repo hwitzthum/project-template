@@ -3,9 +3,13 @@
 ## Befehle
 
 - Einzige Prüfung: `./scripts/verify.sh` (exit 0 = fertig)
-- Aufgabe abschliessen: `./scripts/finish-task.sh <id>` — der EINZIGE Weg.
-  Prüft voll, setzt `status: done`, schreibt metrics.csv, committet. Ein
-  blosser Commit schliesst nichts ab; bei RED ändert sich nichts.
+- Aufgabe abschliessen: `./scripts/finish-task.sh <id> <modell> <runden> <tokens>`
+  — der EINZIGE Weg. Prüft voll, setzt `status: done`, schreibt metrics.csv,
+  committet. Ein blosser Commit schliesst nichts ab; bei RED ändert sich nichts.
+  Modell, Runden und Tokens IMMER mitgeben: Modell = das aktive Modell,
+  Runden = deine Antworten an dieser Aufgabe, Tokens = grobe Schätzung des
+  Verbrauchs. Ohne sie steht in metrics.csv nur ein Strich, und das
+  Meilenstein-Review (KURSANLEITUNG, Schritt 5) hat keine Zahlen.
 - (weitere Befehle trägt der Initializer ein — z.B. dev, build, new)
 
 ## Nicht-offensichtliche Konventionen
@@ -38,4 +42,4 @@
   (scripts/stop-guard.sh) blockiert das Sitzungsende, solange seit
   Sitzungsbeginn committet wurde, aber handoff.md unverändert ist. Reine
   Startkit-Wartung (nur scripts/, .claude/, docs/templates/, docs/profil/,
-  CLAUDE.md, README.md) ist davon ausgenommen.
+  CLAUDE.md, README.md, KURSANLEITUNG) ist davon ausgenommen.
